@@ -13,18 +13,12 @@ A research-assisted wedding planning workspace built with Streamlit and a LangCh
 
 ## How it works
 
-```mermaid
-flowchart LR
-    A[Wedding brief] --> B[Main planner agent]
-    B --> C[Research subagent 1]
-    B --> D[Research subagent 2]
-    C --> E[Tavily web search]
-    D --> E
-    E --> B
-    B --> F[Wedding plan]
-```
+1. The Streamlit app turns the couple’s selections into a structured wedding brief.
+2. The main planner agent uses the brief to decide which research is needed.
+3. It can delegate research tasks to either of two subagents. Both can search the web with Tavily.
+4. The main agent combines the research into a tailored plan for the couple.
 
-The agents use the Groq-hosted `openai/gpt-oss-120b` model. The main agent can delegate research to either subagent; both subagents use the shared Tavily search tool before the main agent prepares the final plan.
+All three agents use the Groq-hosted `openai/gpt-oss-120b` model. Tavily provides web search for the two research subagents.
 
 ## Requirements
 
